@@ -1,0 +1,107 @@
+$ git --version
+
+$ git config --global user.{name,email, core.editor} // usuario, email, "code --wait(tipo de editor de texto a usar)"
+
+$ git config --global -e (ver los vaqlores globales asignados)
+
+cada vez al agregar un salto de linea, windows agrega 2 caracteres especiales para marcar el salto de linea
+(Carrige return-CR || Line Feed-LF)
+
+en linux o mac solo se utiliza el (Line Feed-LF)
+
+el de windods si hay otras personas que tengan otro SO, tendra que elimninar el (CR)
+Pero si quiere descargar la version del repositorio, lo que tiene que hacer es agregar el (CR)
+
+la propiedad de core.autocrlf = true
+
+$ git config --global core.autocrlf true
+
+$ git config -h (configuracion de todas configuraciones posibles)
+
+pero en linux/mac tieneque tener como input
+
+////////////////////////////////////////////// COMANDOS /////////////////////////////////////////////////////////////////////////
+
+$ ls (listar todos los archivos y carpetas dentro de un directorio)
+
+$ pwd (indicar el directorio donde nos encontramos actualmente)
+
+$ cd {ruta directorio} (mover por los directorios)
+
+$ cd .. (retroceder al directorio anterior)
+
+$ mkdir {nombre del directorio} (Crear un nuevo directorio o carpeta)
+
+$ git init (Repositorio inicializado en git)
+
+$ ls -a (mostrar todos los archivos incluidos los ocultos)
+
+$rm {nombre del archivo} (Eliminar archivo)
+
+$ mv {archivo de origen} {archivo de destino} (Sirve para cambiar de nombre el archivo y moverlos a otras rutas si se desea)
+
+$ code . (abrir editor de texto)
+
+$ git status (Mostrar estado actual del repositorio,en rojo los archivos que estan en la computadora y los archivos en verde los que se encuentran listos para entrar al commit pero ya pasaron por Stage)
+
+$ git add {nombre del archivo || *.txt,html,etc || . (agregar todos los archivos al Stage [mal practica])} (enviar el archivo al Stage)
+
+$ git commit -m "{mensaje}" (Enviar los archivos que se encuentran en Stage para el apartado de comit con un mensaje de las modificaciones o las agregaciones de los archivos)
+
+$ git rm {nombre del archivo} (eliminar y enviar el archivo a Stage)
+
+$ git restore --staged {nombre del archivo} (regresar archivo de la etapa Stage
+
+$ git restore {nombre del archivo} (recuperar archivo que fue eliminado)
+
+$ git mv {nombre del archivo de origen} {nombre del archivo a cambiar} (cambiar y enviar al stage los cambios del nombre del archivo)
+
+.gitignore (archivo especial para indicar todos los archivos que git vaya a ignorar)
+
+$ git status -s (mostrar de una forma mas legible y reducido de los archivos creados, modificados o eliminados:
+{
+M -> archivo modificado
+?? -> archivo aun no esta creado para que git le de seguimiento
+A -> Agregando archivo 
+})
+
+$ git diff (muestra el texto que se va a agregar y eliminar del archivo, osea todas las modificaciones incluso los saltos de linea)
+
+$ git diff --staged (mostrar todas las modificaciones que siguen en stage)
+
+$ git log (mostrar el historial de los cambios con un hash como identificador del comit, para salir, oprimir "q")
+
+$ git log --oneline (mostrar el historial de los cambios con un hash como identificador del comit en una linea, para salir, oprimir "q")
+
+$ git branch (Saber enque rama estamos)
+
+$ git checkout -b {nombre de la rama} (Crear una nueva rama o redirigirse a otra rama ya existente)
+
+$ cat {nombre del archivo} (mostrar contenido del archivo)
+
+$ git merge {rama a la cual se desea traer} (traer los archivos de una rama hacia otra)
+
+$ git remote add origin {url GitHub} (indicar si tendremos servidor remoto al cual subir los cambios y de donde obtener los datos que subimos y descargamos)
+
+$ git push -u origin main (crear la rama main en el servidor de GitHub)
+
+/////////////////////////////////////////// FLUJO DE TRABAJO //////////////////////////////////////////////////////////////
+
+   COMPUTADOR                     STAGE                                           COMMIT                                   SERVER                
+		
+(Agregar,		  *Seleccionar los archivos			    *Pasar los archivos de                       *Eviar los archivos a 
+Modificar,                para la etapa Stage                               stage a Commit ya con los                    un servidor como es 
+Eliminar) --> git add --> (No se ve reflejado en el     --> git commit -->  cambios efectuados         --> git push -->  GitHub
+   ^                       repositorio)
+   |		          * Etapa intermedia para
+Archivos                  indicar cuales son los cambios
+*Si se elimina un         que nostoros efectuados para 
+archivo, tambien          que pasen al repositorio
+agregar el git add
+para tener el registro 
+de todo el trabajo 
+realizado
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
